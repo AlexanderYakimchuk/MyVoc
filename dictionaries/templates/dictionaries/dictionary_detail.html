@@ -1,0 +1,13 @@
+{% block content %}
+    <h1>{{ worddictionary.name }}</h1>
+    {% for word in worddictionary.word_set.all %}
+        {{ word.eng_word }} - {{ word.ua_word }}
+        <br>
+    {% endfor %}
+
+    <form action="{% url 'dictionaries:add_word' worddictionary.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add"/>
+    </form>
+{% endblock %}

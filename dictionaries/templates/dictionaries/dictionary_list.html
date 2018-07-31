@@ -1,0 +1,6 @@
+{% block content %}
+    {% for dict in dictionary_list %}
+        <a href="{% url 'dictionaries:concrete_dict' dict.id %}">{{ dict.name }}</a>
+        <br>
+    {% endfor %}
+{% endblock %}
